@@ -54,7 +54,11 @@ def index():
         #distanceList.append({'postcode1':postcode1,'postcode2':postcode2,'distance':round(distance/1000,4)})
     # If multiple pairs were supplied return entire list, else return 1st//only element.
     if len(distanceList) > 1:
-        return str(distanceList)
+        #return str(distanceList)
+        xstr = ""
+        for x in distanceList:
+            xstr+=str(x)+"<br>"
+        return xstr
     return str(distanceList[0])
 
 if __name__ == '__main__':
