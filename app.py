@@ -57,7 +57,7 @@ def index():
         #return str(distanceList)
         xstr = ""
         for x in distanceList:
-            xstr+=str(x)+"<br>"
+            xstr+=str(x)+","
         return xstr
     return str(distanceList[0])
 
