@@ -37,7 +37,7 @@ def index():
 
         distanceList.append(round(distance/1000,4))
         #distanceList.append({'postcode1':postcode1,'postcode2':postcode2,'distance':round(distance/1000,4)})
-    if len(distanceList > 1):
+    if len(distanceList) > 1:
         return str(distanceList)
     return str(distanceList[0])
 
