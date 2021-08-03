@@ -35,7 +35,8 @@ def index():
 
         distance = res['routes'][0]['distance']
 
-        distanceList.append({'postcode1':postcode1,'postcode2':postcode2,'distance':round(distance/1000,4)})
+        distanceList.append(distance)
+        #distanceList.append({'postcode1':postcode1,'postcode2':postcode2,'distance':round(distance/1000,4)})
 
     return str(distanceList)
 
