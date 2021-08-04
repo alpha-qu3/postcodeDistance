@@ -21,24 +21,19 @@ def index():
     # Get unique postcodes from list of postCodes
     uniqPostCodes = list(set(postCodes))
 
-    # Get geo-coordinates for all unique postcodes
-    postCodeGeo = {}
-    for postcode in uniqPostCodes:
-        # Make api request. Extract JSON
-        res = requests.get("http://v0.postcodeapi.com.au/suburbs/"+postcode+".json")
-        res = json.loads(res.text)
-        # Save to dictionary
-        postCodeGeo[postcode] = {"latitude":res[0]['latitude'],"longitude":res[0]['longitude']}
+    # Load Geo data for postcodes
+    with open('postcodes.json') as f:
+        postCodeGeo = json.load(f)
 
     # Loop through postcode-pairs.
     distanceList=[]
     for i in range(0,len(postCodes),2):
         # Get geo data of postcode1
-        postcode1=postCodes[i]
+        postcode1=str(postCodes[i])
         postcode1_lat = str(postCodeGeo[str(postcode1)]['latitude'])
         postcode1_long = str(postCodeGeo[str(postcode1)]['longitude'])
         # Get geo data of postcode2
-        postcode2=postCodes[i+1]
+        postcode2=str(postCodes[i+1])
         postcode2_lat = str(postCodeGeo[str(postcode2)]['latitude'])
         postcode2_long = str(postCodeGeo[str(postcode2)]['longitude'])
 
